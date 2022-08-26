@@ -5,7 +5,7 @@ const base32 = require('thirty-two')
 const qr = require('qr-image')
 var qrcode = require('qrcode-terminal');
 
-const secret = 'POGKADU6MKX33UVX7EJOKGZVV75RHW5DSXRHEJ6DWE4PE2VGTHGA'
+const secret = 'OGRPM236B27XWQYUBLOOOTAXL2PMP4UQ5ELRVTVV54ZSY6WN6BVQ'
 
 // Check TOTP is correct (HOTP if hotp pass type)
 const verify = (input, secret) => { 
@@ -14,7 +14,7 @@ const verify = (input, secret) => {
 
     console.log({input, generate, secret, decodedSecret})
 
-    const isValid = notp.totp.verify(input, secret, {
+    const isValid = notp.totp.verify(input, decodedSecret, {
         window: 3,
         time: 30
     });
